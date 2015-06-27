@@ -1,0 +1,6 @@
+/vendor
+/node_modules
+/public/components
+Homestead.yaml
+.env
+.htaccess

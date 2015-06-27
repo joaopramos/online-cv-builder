@@ -1,0 +1,29 @@
+{
+  "name": "laravel-angular",
+  "version": "0.0.0",
+  "authors": [
+    "joao <joao.p.ramos@gmail.com>"
+  ],
+  "description": "laravel-angular scaffolding",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-sanitize": "~1.4.1",
+    "angular-ui-utils": "~0.2.3",
+    "angular-toasty": "~0.1.8"
+  },
+  "dependencies": {
+    "angular-bootstrap": "~0.13.0",
+    "angular": "~1.4.1",
+    "font-awesome": "~4.3.0",
+    "angular-ui-router": "~0.2.15",
+    "angular-animate": "~1.4.1",
+    "bootstrap-css-only": "~3.3.4"
+  }
+}
