@@ -1,0 +1,22 @@
+
+<div class="cv-edit">
+  <div class="sidebar">
+    <div ng-click="openMenu('structure')" class="menu-icon btn">
+      <div tooltip-placement="right" tooltip="cv structure" class="fa fa-align-left fa-4x"></div>
+    </div>
+    <div ng-click="openMenu('layouts')" class="menu-icon btn">
+      <div tooltip-placement="right" tooltip="templates" class="fa fa-file-text fa-4x"></div>
+    </div>
+  </div>
+  <div class="page">
+    <cv-online id="{{cvId}}">
+      <div ng-show="sideMenu.show" ng-click="sideMenu.show=false" ng-animate="'ng'" class="menu-overlay"></div>
+      <div ng-show="sideMenu.show" ng-animate="'ng'" class="side-menu">
+        <cv-element element="element" init="true"></cv-element>
+      </div>{{cv.element|json}}
+      <div class="cv box">
+        <div ng-include="'dist/templates/cv/edit/template.html'"></div>
+      </div>
+    </cv-online>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+script(type="text/ng-template", id="cv_element_renderer.html")
+    cv-element(element="subelement")
+
+ul.element-group.position-relative
+    .text-center.loading(ng-show = "element.loading") Loading...
+    .top-right
+        span.dropdown(dropdown)
+            .btn.btn-primary.btn-xs.fa.fa-plus.dropdown-toggle(dropdown-toggle, 
+                ng-if="element.getChilds() && element.canAdd()")
+            ul.dropdown-menu(role="menu")
+                li(ng-repeat="(type, title) in element.getChilds()")
+                    .btn(ng-click="element.createChild(type)") new {{title}}
+        .btn.btn-danger.btn-xs.fa.fa-trash(ng-click="destroy()",
+            ng-show="element.parent && element.canRemove()")
+    li.element-data-item
+        .row
+            .element-type {{element.getTitle()}}
+            .col-md-12.element-data
+                form(name = "elementForm", novalidate)
+                div(ng-repeat="(field, type) in element.getEditable()")
+                    div(ng-if="type=='readOnly'")
+                        b: u {{element.data[field]}}
+                    div(ng-if="type=='string'")
+                        input.element-data(type="text", ng-model="element.data[field]", 
+                            placeholder="{{field}}", ng-blur="onBlur($event)", 
+                            ng-change="element.changed=true")
+                    div(ng-if="type=='textarea'")
+                        textarea.element-data(type="text", ng-model="element.data[field]", 
+                            placeholder="{{field}}", ng-blur="onBlur($event)", 
+                            ng-change="element.changed=true", rows="5")
+                    div(ng-if="type=='image'")
+                        img(data-ng-src="{{element.data[field]}}", width="100")
+                        input(type="file", ng-model="element.imageToUpload", name="file",
+                            base-sixty-four-input, required, onloadend="element.updateImage(field)",
+                            maxsize="4000", accept="image/*")
+                    .fa.btn.pull-left.top-left(ng-show="element.getChilds()"
+                        ng-class="{'fa-caret-up':!element.collapsed, 'fa-caret-down': element.collapsed}" 
+                        ng-click="element.collapsed=!element.collapsed")
+    li.element-group-item
+        div(ng-show="!element.collapsed")
+            .left-bar.col-md-12.nopadding-right(ng-repeat="(type, title) in element.getChilds()")
+                div(ng-repeat="subelement in element.childs[type]",
+                 ng-include="'cv_element_renderer.html'")
+
+
+

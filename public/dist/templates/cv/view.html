@@ -1,0 +1,12 @@
+
+<div class="page published">
+  <cv-online id="{{cvId}}">
+    <div ng-show="sideMenu.show" ng-click="sideMenu.show=false" ng-animate="'ng'" class="menu-overlay"></div>
+    <div ng-show="sideMenu.show" ng-animate="'ng'" class="side-menu">
+      <cv-element element="element" init="true"></cv-element>
+    </div>{{cv.element|json}}
+    <div class="cv box">
+      <div ng-include="'dist/templates/cv/edit/template.html'"></div>
+    </div>
+  </cv-online>
+</div>

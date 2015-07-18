@@ -19,7 +19,7 @@ var paths = {
     css: 'public/src/js/**/*.css',
     js: 'public/src/js/**/*.js',
     templates: 'public/src/templates/**/*.html',
-    jade: 'public/src/templates/**/*.jade',
+    jade: 'public/src/js/**/*.jade',
 }
 var dest = {
     css: 'public/dist/css/',
@@ -28,18 +28,23 @@ var dest = {
 }
 var bowerCss = [
     'public/components/bootstrap-css-only/css/bootstrap.min.css',
-    'public/components/font-awesome/css/font-awesome.css',
+    'public/components/font-awesome/css/font-awesome.min.css',
+    'public/components/animate.css/animate.min.css',
 
-    'public/components/angular-toasty/css/ng-toasty.css',
+    'public/components/ngtoast/dist/ngToast.min.css',
     paths.css, paths.styl];
 
 var componentsJs = ['public/components/angular/angular.min.js',
     'public/components/angular-ui-utils/ui-utils.min.js',
+    'public/changed-components/bootstrap.ui-fontsawesome/ui-bootstrap-tpls.js',
     'public/components/angular-ui-router/release/angular-ui-router.min.js',
     'public/components/angular-sanitize/angular-sanitize.min.js',
     'public/components/angular-animate/angular-animate.min.js',
 
-    'public/components/angular-toasty/js/ng-toasty.min.js',
+    'public/components/ngtoast/dist/ngToast.min.js',
+
+    'public/components/jquery/dist/jquery.min.js',
+    'public/components/angular-base64-upload/dist/angular-base64-upload.min.js',
     ];
 
 var srcJs=[paths.js];

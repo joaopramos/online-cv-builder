@@ -1,0 +1,63 @@
+.template
+    .side-strip-wrap: .row.height100
+        .col-xs-1
+        .col-sm-4.col-xs-10.background2.height100.side-strip
+    .min-height100
+    .row.horizontal-strip.background1.zidx20
+        .col-xs-1
+        .col-sm-4.col-xs-10
+            .frame.zidx20.text-center
+                cv-picture
+        .col-sm-7.col-xs-10.color2.push-xs
+            .row: col-xs-12.text-center
+                h1: cv-header(name="name").uppercase
+            .row: .col-xs-12.text-center: .black-line
+            .row: col-xs-12.text-center
+                cv-header(name="email")
+            .row: col-xs-12.text-center
+                cv-header(name="address")
+            .row: col-xs-12.text-center
+                cv-header(name="phone")
+    .row
+        .col-xs-1
+        .col-sm-4.col-xs-10.text-center.side-text.color1
+            .row
+                cv-section(name="skills")
+                    cv-section-name.white-line-box
+                    cv-items
+                        div.show-on-hover
+                            p: cv-item-name
+                            cv-entries.animate-in-hover
+                                p: cv-entry
+                                p: cv-entry-photos
+            .row
+            cv-section(name="education")
+                cv-section-name.white-line-box
+                cv-items
+                    cv-item-name
+                    cv-item-header(name='start')
+                    | - 
+                    cv-item-header(name='end')
+                    cv-entries
+                        p: cv-entry
+                        p: cv-entry-photos
+        .col-sm-7.col-xs-10.text-center.color2.push-xs
+            .row
+                cv-section(name="profile")
+                    cv-section-name.black-line-box
+                    cv-items
+                        div.show-on-hover
+                            cv-item-name
+                            cv-entries
+                                p: cv-entry
+                                p: cv-entry-photos
+            .row
+            cv-section(name="experience")
+                cv-section-name.black-line-box
+                cv-items
+                    cv-item-name
+                    cv-entries
+                        p: cv-entry.text-justify
+                        p: cv-entry-photos
+
+

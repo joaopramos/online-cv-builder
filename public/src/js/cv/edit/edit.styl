@@ -1,0 +1,139 @@
+.cv-edit
+    .sidebar
+        position fixed
+        overflow visible
+        z-index 1002!important
+        background-color rgba(0,0,0,.6)
+        left 0
+        top 0
+        padding-top 52px
+        width 72px
+        height 100%
+        z-index 2
+        border-right solid 1px black
+        border-bottom solid 1px black
+    .menu-icon
+        padding 8px
+        color #ccc
+    .menu-overlay
+        position fixed
+        top 0
+        left 70px
+        right 0
+        bottom 0
+        background-color rgba(0,0,0,.8)
+        z-index 999
+    .side-menu
+        position absolute
+        overflow-y auto
+        overflow-x hidden
+        top 0
+        bottom 0
+        left 0
+        margin-top 52px
+        margin-left 72px
+        margin-right 72px
+        margin-bottom 100px
+        border-right solid 1px #333
+        padding 10px
+        width 80%
+        background-color rgba(120,120,120,.8)
+        max-width 900px
+        z-index 1000!important
+cv-element
+    ul.element-group
+        list-style-type none
+        display inline-block
+        margin-top 5px
+        padding-left 3px
+        width 100%
+        color #ccc
+        li
+            padding-left 5px
+            padding-right -10px
+    input
+        background-color transparent
+        border initial
+        width 100%
+        text-decoration underline
+    .box
+        padding 5px
+        color black
+    .left-bar
+        border-left 10px solid rgb(230,230,230)
+    .loading
+        color white
+    .element-data
+        margin 0px
+        background-color rgba(255,255,255,.15)
+        border 1px dotted black
+        input
+            padding 2px
+    .top-right
+        position absolute
+        top 2px
+        right 10px
+    .top-left
+        position absolute
+        left -10px
+        top 0
+    .element-type
+        position relative
+        display inline-block
+        border 1px dotted black
+        background-color rgba(255,255,255,.45)
+        color black
+        font-size 75%
+        padding-left 3px
+        padding-right 3px
+    .dropdown-menu
+        position relative
+        left auto
+        top 20px
+        right -30px
+    textarea
+        width 100%
+    .image-element
+        float left
+        display block
+        border 1px solid black
+        width 100px
+
+//////////////////////////////////////////////////////////
+// ANIMATIONS ////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+.ng-hide-add.menu-overlay
+    opacity 1
+    -webkit-transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    transition: opacity .6s;
+.ng-hide-add-active.menu-overlay
+    opacity 0
+
+.ng-hide-add.side-menu
+    width 80%
+    display block
+    overflow hidden
+    -webkit-transition: .4s;
+    -moz-transition: width .4s;
+    transition: width .4s;
+.ng-hide-add-active.side-menu
+    width 0
+
+.ng-hide-remove.menu-overlay
+    opacity 0
+    -webkit-transition: opacity .4s;
+    -moz-transition: opacity .4s;
+    transition: opacity .4s;
+.ng-hide-remove-active.menu-overlay
+    opacity 1
+
+.ng-hide-remove.side-menu
+    width 0%
+    display block
+    overflow hidden
+    -webkit-transition: .4s;
+    -moz-transition: width .4s;
+    transition: width .4s;
+.ng-hide-remove-active.side-menu
+    width 80%

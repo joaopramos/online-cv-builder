@@ -1,0 +1,9 @@
+.page.published
+    cv-online(id="{{cvId}}")
+        .menu-overlay(ng-show="sideMenu.show", ng-click="sideMenu.show=false",
+        ng-animate="'ng'")
+        .side-menu(ng-show="sideMenu.show", ng-animate="'ng'")
+            cv-element(element="element", init="true")
+        |{{cv.element|json}}
+        .cv.box
+            div(ng-include="'dist/templates/cv/edit/template.html'")

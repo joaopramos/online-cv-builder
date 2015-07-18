@@ -1,0 +1,15 @@
+.cv-edit
+    .sidebar
+        .menu-icon.btn(ng-click="openMenu('structure')")
+            .fa.fa-align-left.fa-4x(tooltip-placement="right", tooltip="cv structure")
+        .menu-icon.btn(ng-click="openMenu('layouts')")
+            .fa.fa-file-text.fa-4x(tooltip-placement="right", tooltip="templates")
+    .page
+        cv-online(id="{{cvId}}")
+            .menu-overlay(ng-show="sideMenu.show", ng-click="sideMenu.show=false",
+            ng-animate="'ng'")
+            .side-menu(ng-show="sideMenu.show", ng-animate="'ng'")
+                cv-element(element="element", init="true")
+            |{{cv.element|json}}
+            .cv.box
+                div(ng-include="'dist/templates/cv/edit/template.html'")

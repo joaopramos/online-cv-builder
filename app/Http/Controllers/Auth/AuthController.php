@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
+use App\Template;
+use App\CV;
+use App\UserSeeder;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Session;
 
 class AuthController extends Controller
 {
@@ -29,7 +34,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest', ['except' => 'getLogout','checkSession' ]);
     }
 
     /**
@@ -55,10 +60,31 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user=User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        Auth::setUser($user);
+        $this->initUser($user);
+        return $user;
     }
+
+    protected function initUser($user) {
+        $default = Template::where('name', '=', 'default')->first()->id;
+        $cv=CV::create([
+            'user_id' => $user->id,
+            'template_id' => $default,
+        ]);
+        UserSeeder::seedCv($cv);
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+        Session::flush();
+       $this->getLogin();
+        return redirect('/');
+    }
+
 }

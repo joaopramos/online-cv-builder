@@ -1,0 +1,45 @@
+
+<script type="text/ng-template" id="cv_element_renderer.html">
+  <cv-element element="subelement"></cv-element>
+</script>
+<ul class="element-group position-relative">
+  <div ng-show="element.loading" class="text-center loading">Loading...</div>
+  <div class="top-right"><span dropdown="dropdown" class="dropdown">
+      <div dropdown-toggle="dropdown-toggle" ng-if="element.getChilds() &amp;&amp; element.canAdd()" class="btn btn-primary btn-xs fa fa-plus dropdown-toggle"></div>
+      <ul role="menu" class="dropdown-menu">
+        <li ng-repeat="(type, title) in element.getChilds()">
+          <div ng-click="element.createChild(type)" class="btn">new {{title}}</div>
+        </li>
+      </ul></span>
+    <div ng-click="destroy()" ng-show="element.parent &amp;&amp; element.canRemove()" class="btn btn-danger btn-xs fa fa-trash"></div>
+  </div>
+  <li class="element-data-item">
+    <div class="row">
+      <div class="element-type">{{element.getTitle()}}</div>
+      <div class="col-md-12 element-data">
+        <form name="elementForm" novalidate="novalidate"></form>
+        <div ng-repeat="(field, type) in element.getEditable()">
+          <div ng-if="type=='readOnly'"><b>
+              <u>{{element.data[field]}}</u></b></div>
+          <div ng-if="type=='string'">
+            <input type="text" ng-model="element.data[field]" placeholder="{{field}}" ng-blur="onBlur($event)" ng-change="element.changed=true" class="element-data"/>
+          </div>
+          <div ng-if="type=='textarea'">
+            <textarea type="text" ng-model="element.data[field]" placeholder="{{field}}" ng-blur="onBlur($event)" ng-change="element.changed=true" rows="5" class="element-data"></textarea>
+          </div>
+          <div ng-if="type=='image'"><img data-ng-src="{{element.data[field]}}" width="100"/>
+            <input type="file" ng-model="element.imageToUpload" name="file" base-sixty-four-input="base-sixty-four-input" required="required" onloadend="element.updateImage(field)" maxsize="4000" accept="image/*"/>
+          </div>
+          <div ng-show="element.getChilds()" ng-class="{'fa-caret-up':!element.collapsed, 'fa-caret-down': element.collapsed}" ng-click="element.collapsed=!element.collapsed" class="fa btn pull-left top-left"></div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="element-group-item">
+    <div ng-show="!element.collapsed">
+      <div ng-repeat="(type, title) in element.getChilds()" class="left-bar col-md-12 nopadding-right">
+        <div ng-repeat="subelement in element.childs[type]" ng-include="'cv_element_renderer.html'"></div>
+      </div>
+    </div>
+  </li>
+</ul>

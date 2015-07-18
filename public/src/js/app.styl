@@ -6,10 +6,65 @@ backgroundGradient(deg, color1, perc1, color2, perc2)
     background:linear-gradient(deg, color1 perc1, color2 perc2);  /* W3C */
 
 .background-gradient
-    backgroundGradient(90deg, #EFEFBB, 10%, #D4D3DD, 90%)!important;
     background-color: inherit
-
+    //backgroundGradient(90deg, #134E5E, 10%, #71B280, 90%)!important;
+    
 .width100
     width 100%
+.height100
+    height 100%
+.min-height100
+    min-height 100px
+.min-height200
+    min-height 200px
+.min-height300
+    min-height 300px
+
 .nopadding
     padding 0
+.nopadding-right
+    padding-right 0
+.nopadding-left
+    padding-left 0
+
+.position-absolute
+    position absolute
+.position-relative
+    position relative
+.position-fixed
+    position fixed
+
+body, html
+    height 100%
+.wrapper
+    position relative
+    min-height 100%
+.content
+    padding-bottom 100px
+.footer
+    background-color: rgba(0,0,0,.6)
+    position absolute
+    bottom 0
+    width 100%
+    border-top solid 1px black
+.navbar
+    z-index 1003;
+.box
+    .box-header
+        margin-left: -15px
+        margin-right: -15px
+        border-top: 3px solid #d2d6de;
+        min-height 30px
+        background-color rgba(210,214,222, .8)
+        font-size 18px
+        font-family 'Source Sans Pro' sans-serif
+        margin-bottom 20px
+    .box-body
+        min-height 50px
+        position relative
+    //background-color rgba(255,255,255,0.3)
+    display block
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
