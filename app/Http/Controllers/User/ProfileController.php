@@ -71,8 +71,8 @@ class ProfileController extends Controller
 
         if($cv->slug != $this->request->input('slug')) {
             $this->validate($this->request, [
-                'slug' => 'required|max:255|alpha_dash|unique:cvs|'+
-                'not_in:auth,password,profile,admin,home,api',
+                'slug' => 'required|max:255|alpha_dash|unique:cvs|'.
+                'not_in:auth,password,profile,admin,home,api,pdf,templates,settemplate',
             ]);
         }
         $cv->slug = strtolower($this->request->input('slug'));

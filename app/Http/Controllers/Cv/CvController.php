@@ -59,6 +59,7 @@ class CvController extends Controller
         ), 200);
     }
 
+
     public function destroy($id) {
         $this->resource->find($id);
         $this->resource->delete();

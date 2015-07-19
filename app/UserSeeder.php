@@ -159,7 +159,7 @@ class UserSeeder
                 'portfolio' => [
                     'items' => [
                         [
-                            'name' => 'personal statement',
+                            'name' => 'my portfolio',
                             'headers' => [
                             ],
                             'entries' => [ $miniLorem, $miniLorem ]
@@ -173,6 +173,16 @@ class UserSeeder
                             'headers' => [
                             ],
                             'entries' => [ 'Available on request.' ]
+                        ],
+                    ],
+                ],
+                'about' => [
+                    'items' => [
+                        [
+                            'name' => 'interests',
+                            'headers' => [
+                            ],
+                            'entries' => [ '...' ]
                         ],
                     ],
                 ],

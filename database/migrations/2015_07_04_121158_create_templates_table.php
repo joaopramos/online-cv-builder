@@ -16,6 +16,7 @@ class CreateTemplatesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->text('template');
+            $table->text('pdf_template');
             $table->text('css');
             $table->text('thumbnail');
         });

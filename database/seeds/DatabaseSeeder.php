@@ -50,8 +50,29 @@ class TemplatesTableSeeder extends Seeder
     {
         DB::table('templates')->insert([
             'name' => 'default',
-            'template' => '',
-            'css' => '',
+            'template' => $this->readFile('default.html.txt'),
+            'css' => $this->readFile('default.css.txt'),
+            'pdf_template' => $this->readFile('default.pdf.txt'),
+            'thumbnail' => 'dist/images/default.png',
         ]);
+        DB::table('templates')->insert([
+            'name' => 'flat',
+            'template' => $this->readFile('flat.html.txt'),
+            'css' => $this->readFile('flat.css.txt'),
+            'pdf_template' => $this->readFile('flat.pdf.txt'),
+            'thumbnail' =>'dist/images/flat.png',
+        ]);
+    }
+
+    public function readFile($filename) {
+        $path = base_path('resources/assets/templates/');
+        try {
+        $file = fopen($path.$filename, "r") or die("Unable to open file!");
+        $txt = fread($file,filesize($path.$filename));
+        } catch(Exception $e) {
+            return '';
+        }
+        fclose($file);
+        return $txt;
     }
 }

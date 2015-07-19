@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.other')
 
 @section('app','cv')
 @section('body-classes','background-gradient')

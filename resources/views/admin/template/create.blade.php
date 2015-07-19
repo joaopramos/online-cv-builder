@@ -43,6 +43,14 @@
                     </div>
                 </li>
                 <li class="list-group-item">
+                    <div class = "row">
+                        <div class="col-xs-3"> pdf template  </div>
+                        <div class="col-xs-9">
+                            <textarea name="pdf_template" style="height:300px; width:100%"></textarea>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
                     <div class="row">
                         <button type="submit" class="btn btn-primary pull-right">
                             Create template

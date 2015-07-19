@@ -148,7 +148,7 @@
             return {
                 restrict: 'E',
                 require: '^cvEntries',
-                template:'{{entry.data.entry}}',
+                template:'<div ng-bind-html="entry.data.entry"></div>',
             };
         }
     );

@@ -5,5 +5,5 @@
         .side-menu(ng-show="sideMenu.show", ng-animate="'ng'")
             cv-element(element="element", init="true")
         |{{cv.element|json}}
-        .cv.box
-            div(ng-include="'dist/templates/cv/edit/template.html'")
+        .cv.cv-box
+            div(ng-include="'template.html'")

@@ -5,6 +5,7 @@
 
 @section('head')
     @parent
+
 @stop
 
 @section('header')

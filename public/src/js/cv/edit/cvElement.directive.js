@@ -1,7 +1,7 @@
 (function(){
   'use strict';
     angular.module('cv').directive('cvElement',
-        function() {
+        ['$baseUrl', function($baseUrl) {
             return {
                 restrict: 'E',
                 controller: 'ElementController',
@@ -10,8 +10,7 @@
                     element: '=',
                     init: '@',
                 },
-                templateUrl:'dist/templates/cv/edit/cvElement.html',
+                templateUrl: $baseUrl+'dist/templates/cv/edit/cvElement.html',
             };
-        }
-    );
+        }]);
 })();

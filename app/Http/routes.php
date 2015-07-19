@@ -37,11 +37,16 @@ Route::get('/', ['middleware'=>'redirectAdmin', 'uses'=>'HomeController@index'])
 Route::get('/pdf', ['middleware'=>'auth', 'uses'=>'HomeController@pdf']);
 Route::get('/home', [ 'uses'=>'HomeController@home']);
 
+Route::get('/templates', ['middleware'=>'auth', 'uses'=>'HomeController@templates']);
+Route::get('/templates/settemplate/{id}', [ 'uses'=>'HomeController@setTemplate']);
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('template', 'Admin\TemplateController');
     Route::resource('user', 'Admin\UserController');
 });
 
-Route::get('/{name}', ['uses' => 'HomeController@getCv'])
+Route::get('/{name}/', ['uses' => 'HomeController@getCv'])
+    ->where('name', '[-A-Za-z0-9_-]+');
+Route::get('/{name}/renderpdf', ['uses' => 'HomeController@renderPDF'])
     ->where('name', '[-A-Za-z0-9_-]+');

@@ -1,0 +1,170 @@
+
+<div class="template pdf">
+  <div class="row">
+    <div class="col-xs-7">
+      <div class="row">
+        <col-xs-12 class="text-center">
+          <h1>
+            <cv-header name="name" class="uppercase"></cv-header>
+          </h1>
+        </col-xs-12>
+      </div>
+      <div class="row">
+        <col-xs-12 class="text-center">
+          <cv-header name="email"></cv-header>
+        </col-xs-12>
+      </div>
+      <div class="row">
+        <col-xs-12 class="text-center">
+          <cv-header name="address"></cv-header>
+        </col-xs-12>
+      </div>
+      <div class="row">
+        <col-xs-12 class="text-center">
+          <cv-header name="phone"></cv-header>
+        </col-xs-12>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="frame zidx20 text-center">
+        <cv-picture></cv-picture>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <cv-section name="profile" class="row">
+    <div class="col-xs-2">
+      <cv-section-name class="text-center"></cv-section-name>
+    </div>
+    <div class="col-xs-10">
+      <cv-items class="row">
+        <div class="col-sm-12 text-justify">
+          <p>
+            <cv-item-name></cv-item-name>
+          </p>
+          <cv-entries>
+            <p>
+              <cv-entry></cv-entry>
+            </p>
+            <p>
+              <cv-entry-photos></cv-entry-photos>
+            </p>
+          </cv-entries>
+        </div>
+      </cv-items>
+    </div>
+  </cv-section>
+  <hr/>
+  <cv-section name="skills" class="row">
+    <div class="col-xs-2">
+      <cv-section-name class="text-center"></cv-section-name>
+    </div>
+    <div class="col-xs-10">
+      <cv-items class="row">
+        <div class="col-sm-4 text-center">
+          <p>
+            <cv-item-name></cv-item-name>
+          </p>
+          <cv-entries>
+            <p>
+              <cv-entry></cv-entry>
+            </p>
+            <p>
+              <cv-entry-photos></cv-entry-photos>
+            </p>
+          </cv-entries>
+        </div>
+      </cv-items>
+    </div>
+  </cv-section>
+  <hr/>
+  <cv-section name="experience" class="row">
+    <div class="col-xs-2">
+      <cv-section-name class="text-center"></cv-section-name>
+    </div>
+    <div class="col-xs-10">
+      <cv-items class="row">
+        <div class="col-xs-12 text-center">
+          <cv-item-name class="text-center"></cv-item-name>
+          <cv-item-header name="start"></cv-item-header>- 
+          <cv-item-header name="end"></cv-item-header>
+          <cv-entries>
+            <p>
+              <cv-entry class="text-justify"></cv-entry>
+            </p>
+            <p>
+              <cv-entry-photos></cv-entry-photos>
+            </p>
+          </cv-entries>
+        </div>
+      </cv-items>
+    </div>
+  </cv-section>
+  <hr/>
+  <cv-section name="education" class="row">
+    <div class="col-xs-2">
+      <cv-section-name class="text-center"></cv-section-name>
+    </div>
+    <div class="col-xs-10">
+      <cv-items class="row">
+        <div class="col-xs-12 text-center">
+          <cv-item-name class="text-center"></cv-item-name>
+          <cv-item-header name="start"></cv-item-header>- 
+          <cv-item-header name="end"></cv-item-header>
+          <cv-entries>
+            <p>
+              <cv-entry class="text-justify"></cv-entry>
+            </p>
+            <p>
+              <cv-entry-photos></cv-entry-photos>
+            </p>
+          </cv-entries>
+        </div>
+      </cv-items>
+    </div>
+  </cv-section>
+  <hr/>
+  <cv-section name="portfolio" class="row">
+    <div class="col-xs-2">
+      <cv-section-name class="text-center"></cv-section-name>
+    </div>
+    <div class="col-xs-10">
+      <cv-items class="row">
+        <div class="col-xs-12 text-center">
+          <cv-item-name class="text-center"></cv-item-name>
+          <cv-entries>
+            <p>
+              <cv-entry class="text-justify"></cv-entry>
+            </p>
+            <p>
+              <cv-entry-photos></cv-entry-photos>
+            </p>
+          </cv-entries>
+        </div>
+      </cv-items>
+    </div>
+  </cv-section>
+  <hr/>
+  <cv-section name="about" class="row">
+    <div class="col-xs-2">
+      <cv-section-name class="text-center"></cv-section-name>
+    </div>
+    <div class="col-xs-10">
+      <cv-items class="row">
+        <div class="col-xs-12 text-center">
+          <cv-item-name class="text-center"></cv-item-name>
+          <cv-entries>
+            <p>
+              <cv-entry class="text-justify"></cv-entry>
+            </p>
+            <p>
+              <cv-entry-photos></cv-entry-photos>
+            </p>
+          </cv-entries>
+        </div>
+      </cv-items>
+    </div>
+  </cv-section>
+  <hr/>
+</div>
+

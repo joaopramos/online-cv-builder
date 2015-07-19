@@ -21,6 +21,11 @@ class CV extends Model
      */
     protected $fillable = ['user_id', 'template_id', 'slug', 'published', 'profilepic'];
 
+    public function template()
+    {
+        return $this->belongsTo('App\Template', 'template_id');
+    }
+
     public function section()
     {
         return $this->hasMany('App\Section', 'cv_id');

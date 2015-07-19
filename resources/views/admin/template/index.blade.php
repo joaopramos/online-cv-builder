@@ -20,8 +20,8 @@
                 @foreach ($templates as $item)
                     <tr>
                         <td>{{ $item->name }}</td>
-                        <td><img src="{{$item->thumbnail}}" width="100"></td>
-                        <td><a href="/admin/template/{{ $item->id }}">
+                        <td><img src="{{URL::to('/').'/'.$item->thumbnail}}" width="100"></td>
+                        <td><a href="{{URL::to('/')}}/admin/template/{{ $item->id }}">
                             <div class="fa fa-pencil btn btn-primary btn-xs"></div></a></td>
                     </tr>
                 @endforeach

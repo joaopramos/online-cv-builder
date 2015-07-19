@@ -42,6 +42,24 @@ class TemplateController extends Controller
     {
        $input = $request->all();
        $template = Template::findOrFail($id);
+
+        if($request->hasFile('image'))
+        {
+            $image = $request->file('image');
+            $filename = date('Y-m-d-H:i:s')."-".$image->getClientOriginalName();
+            $path = public_path('dist/images/'.$filename);
+            Image::make($image->getRealPath())->resize(500, null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+            })->save($path);
+            $template->thumbnail = 'dist/images/'.$filename;
+        }
+
+       $template->fill($input)->save();
+       return redirect('admin/template');
+
+       $input = $request->all();
+       $template = Template::findOrFail($id);
        if($request->hasFile('image'))
             $template->thumbnail = $this->getImageBase64( $request->file('image') );
        $template->fill($input)->save();

@@ -11,36 +11,21 @@
             <script> angular.module('cv').constant('$baseUrl', '{{ URL::to('/') }}/'); </script>
             @if( Auth::check() && !Auth::user()->admin)
                 <script> angular.module('cv').constant('$currentUser', {{ Auth::user()->id }}); </script>
-                <script> angular.module('cv').constant('$cvId', {{ $cv->id }}); </script>
             @else
                 <script> angular.module('cv').constant('$currentUser', 0); </script>
-                <script> angular.module('cv').constant('$cvId', {{isset($cv)? $cv->id : 'null'}}); </script>
             @endif
+            <script> angular.module('cv').constant('$cvId', {{ $cv->id }}); </script>
             <style>
-                {!! $cv ? $cv->template->css : null !!}
+                {!! $cv->template->css !!}
             </style>
         @show
     </head>
     <body ng-app="@yield('app')" class="@yield('body-classes')">
-    <div id="top"></div>
-        <div class="wrapper">
-        @section('header')
+        @section('content')
+            <script type="text/ng-template" id="template.html">
+                {!! $cv->template->pdf_template !!}
+            </script>
         @show
-            <div class="container">
-                <div class="content">
-                    @section('content')
-                        @if(isset($cv) && $cv)
-                            <script type="text/ng-template" id="template.html">
-                                {!! $cv->template->template !!}
-                            </script>
-                        @endif
-                    @show
-                </div>
-            </div>
-        @section('footer')
-        @show
-        </div>
-        {!! HTML::script('dist/js/laravel.js') !!}
     </body>
 </html>
 

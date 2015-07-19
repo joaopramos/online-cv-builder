@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular.module('cv', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngToast',
-        'utils', 'naif.base64'])
+         'ngSanitize','naif.base64'])
 
     .run(['$rootScope', '$window', '$currentUser', '$baseUrl', '$cvId', '$state', 'ngToast',
     function($rootScope, $window, $currentUser, $baseUrl, $cvId, $state, ngToast ) {
@@ -20,22 +20,22 @@
         });
     }])
 
-    .config(['$stateProvider', '$urlRouterProvider', '$animateProvider',
-    function($stateProvider, $urlRouterProvider, $animateProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$animateProvider', '$baseUrl',
+    function($stateProvider, $urlRouterProvider, $animateProvider, $baseUrl) {
         $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: '/dist/templates/welcome.html',
+            templateUrl: $baseUrl+'/dist/templates/welcome.html',
             controller: 'AppCtrl',
         })
         .state('edit', {
             url: '/edit',
-            templateUrl: 'dist/templates/cv/edit/edit.html',
+            templateUrl: $baseUrl+'dist/templates/cv/edit/edit.html',
             controller: 'EditController'
         })
         .state('view', {
             url: '/view',
-            templateUrl: 'dist/templates/cv/view.html',
+            templateUrl: $baseUrl+'dist/templates/cv/view.html',
             controller: ['$scope', '$cvId', function($scope, $cvId) {
                 $scope.cvId = $cvId;
             }]
@@ -47,6 +47,6 @@
 
     .controller('AppCtrl', ['$scope', function($scope) {
         var ctrl = this;
-        $scope.welcome = 'CV online for coders';
+        $scope.welcome = 'CV online Builder';
     }]);
 }());

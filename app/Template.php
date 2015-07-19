@@ -19,6 +19,6 @@ class Template extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'template', 'css'];
+    protected $fillable = ['name', 'template', 'css', 'pdf_template'];
 
 }

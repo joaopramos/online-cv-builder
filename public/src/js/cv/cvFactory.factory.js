@@ -88,7 +88,7 @@
                 angular.forEach( cvStructure[type].inherit, function(value, key) {
                     params[key]=el.data[value];
                 } );
-                $http.post($baseUrl+cvStructure[type].api+'/', params).then(function(response) {
+                $http.post($baseUrl+cvStructure[type].api, params).then(function(response) {
                     el.notifyUser(el.getTitle() + ' created');
                     el.collapsed = false;
                     el.childs[type].push( ElementFactory.create( type,
