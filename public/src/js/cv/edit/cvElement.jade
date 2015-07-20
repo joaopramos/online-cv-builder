@@ -29,6 +29,8 @@ ul.element-group.position-relative
                             placeholder="{{field}}", ng-blur="onBlur($event)", 
                             ng-change="element.changed=true", rows="5")
                     div(ng-if="type=='image'")
+                        .btn.btn-danger.btn-xs.fa.fa-trash(ng-click="removeProfilePic()",
+                            ng-show="field=='profilepic'")
                         img(data-ng-src="{{element.data[field]}}", width="100")
                         input(type="file", ng-model="element.imageToUpload", name="file",
                             base-sixty-four-input, required, onloadend="element.updateImage(field)",

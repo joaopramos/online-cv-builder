@@ -3,8 +3,19 @@
     angular.module('cv', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngToast',
          'ngSanitize','naif.base64'])
 
-    .run(['$rootScope', '$window', '$currentUser', '$baseUrl', '$cvId', '$state', 'ngToast',
-    function($rootScope, $window, $currentUser, $baseUrl, $cvId, $state, ngToast ) {
+    .factory('sessionInterceptor', [ '$baseUrl', function( $baseUrl ) {
+        return {
+            'responseError': function(rejection) {
+                if(rejection.status === 401){
+                    window.location = $baseUrl+"auth/login" ;
+                }
+            }
+        };
+    }])
+
+    .run(['$rootScope', '$window', '$currentUser', '$baseUrl', '$cvId', '$state',
+        'ngToast',
+    function($rootScope, $window, $currentUser, $baseUrl, $cvId, $state, ngToast) {
         if($window.location.href === $baseUrl) {
             if( $currentUser ) $state.go('edit', {}, { location:false });
             else $state.go('home', {}, { location:false });
@@ -18,10 +29,15 @@
                 timeout: 2000,
             });
         });
+        $rootScope.$on('loginRequired', function(e) {
+        });
     }])
 
     .config(['$stateProvider', '$urlRouterProvider', '$animateProvider', '$baseUrl',
-    function($stateProvider, $urlRouterProvider, $animateProvider, $baseUrl) {
+        '$injector', '$httpProvider',
+    function($stateProvider, $urlRouterProvider, $animateProvider, $baseUrl,
+        $injectori, $httpProvider) {
+        $httpProvider.interceptors.push('sessionInterceptor');
         $stateProvider
         .state('home', {
             url: '/home',

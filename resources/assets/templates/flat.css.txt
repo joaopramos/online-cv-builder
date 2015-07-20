@@ -34,12 +34,17 @@
   display: block;
   font-size: 120%;
   font-weight: bold;
-  margin-bottom: 15px;
 }
 .template cv-item-header {
   display: inline-block;
   font-style: italic;
   font-size: 110%;
+  margin-bottom: 20px;
+}
+.template cv-entry {
+  white-space: pre-wrap
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .template cv-entry-photos {
   display: block;

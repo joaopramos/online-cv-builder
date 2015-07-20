@@ -28,7 +28,7 @@ class ItemHeader extends Model
 
     public function parent()
     {
-        return $this->belongsTo('App\item', 'item_id');
+        return $this->belongsTo('App\Item', 'item_id');
     }
 
 

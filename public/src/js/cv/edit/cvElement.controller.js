@@ -16,6 +16,11 @@
         $scope.destroy = function () {
             $scope.element.destroy();
         };
+
+        $scope.removeProfilePic = function () {
+            $scope.element.data.profilepic=null;
+            $scope.element.update();
+        }
     }]);
 }());
 

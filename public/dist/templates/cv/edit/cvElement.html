@@ -27,7 +27,8 @@
           <div ng-if="type=='textarea'">
             <textarea type="text" ng-model="element.data[field]" placeholder="{{field}}" ng-blur="onBlur($event)" ng-change="element.changed=true" rows="5" class="element-data"></textarea>
           </div>
-          <div ng-if="type=='image'"><img data-ng-src="{{element.data[field]}}" width="100"/>
+          <div ng-if="type=='image'">
+            <div ng-click="removeProfilePic()" ng-show="field=='profilepic'" class="btn btn-danger btn-xs fa fa-trash"></div><img data-ng-src="{{element.data[field]}}" width="100"/>
             <input type="file" ng-model="element.imageToUpload" name="file" base-sixty-four-input="base-sixty-four-input" required="required" onloadend="element.updateImage(field)" maxsize="4000" accept="image/*"/>
           </div>
           <div ng-show="element.getChilds()" ng-class="{'fa-caret-up':!element.collapsed, 'fa-caret-down': element.collapsed}" ng-click="element.collapsed=!element.collapsed" class="fa btn pull-left top-left"></div>

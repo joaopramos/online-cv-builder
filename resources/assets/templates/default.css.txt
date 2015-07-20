@@ -137,9 +137,14 @@
   overflow: hidden;
   box-shadow: 2px 2px 5px #444;
 }
+.template cv-entries {
+  margin-top: 20px;
+  display: block;
+}
 .template cv-entry {
   margin-top: 20px;
   margin-bottom: 20px;
+  white-space: pre-wrap;
 }
 .frame {
   margin: -30px auto 0px auto;
